@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+/* Ocultar el cursor nativo solo en dispositivos con ratón preciso */
+@media (pointer: fine) {
+  body, 
+  a, 
+  button, 
+  input, 
+  textarea, 
+  select {
+    cursor: none !important;
+  }
+}
