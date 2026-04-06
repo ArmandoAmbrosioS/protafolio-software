@@ -2,7 +2,8 @@
 import "./globals.css";
 import { ThemeProvider } from "@/src/components/ThemeProvider";
 import CustomCursor from "@/src/components/CustomCursor";
-import { LanguageProvider } from "@/src/context/LanguageContext"; // <-- Importamos
+import { LanguageProvider } from "@/src/context/LanguageContext";
+import Navbar from "@/src/components/Navbar";
 
 export const metadata = {
   title: "Armando Ambrosio - Portafolio",
@@ -21,6 +22,7 @@ export default function RootLayout({
           {/* Envolvemos con el LanguageProvider */}
           <LanguageProvider>
             <CustomCursor />
+            <Navbar />
             {children}
           </LanguageProvider>
         </ThemeProvider>

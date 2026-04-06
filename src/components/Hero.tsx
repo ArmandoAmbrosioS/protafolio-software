@@ -5,7 +5,7 @@ import { ArrowRight, Bot } from "lucide-react";
 import { useState, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-import Image from "next/image"; 
+import Image from "next/image"; // Importamos Image de Next.js
 import { useLanguage } from "@/src/context/LanguageContext";
 
 function cn(...inputs: any[]) {
@@ -21,9 +21,10 @@ const letterVariants = {
   }),
 };
 
-// Componente AnimatedText protegido contra undefined
+// Componente AnimatedText con "Red de Seguridad" Senior
 const AnimatedText = ({ text, className }: { text: string; className: string }) => {
-  if (!text) return null; // Validación Senior
+  if (!text) return null; // Validación Senior: si no hay texto, no intentes hacer el .split()
+
   return (
     <span className={cn("inline-block", className)}>
       {text.split("").map((letter, i) => (
@@ -99,7 +100,7 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium mb-10 transition-colors duration-500"
         >
-          {t.hero.intro} <span className="text-zinc-900 dark:text-white font-bold">Armando Ambrosio.</span>
+          Un gusto conocerte, soy <span className="text-zinc-900 dark:text-white font-bold">Armando Ambrosio.</span>
         </motion.h2>
         
         {/* CONTENEDOR DE FOTO Y TEXTO GIGANTE */}
@@ -118,7 +119,6 @@ export default function Hero() {
               src="/images/me.jpg" // Asegúrate de tener tu foto en /public/images/me.jpg
               alt="Armando Ambrosio"
               fill
-              sizes="(max-width: 768px) 160px, 224px"
               className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0" // Efecto grayscale a color
               priority // Carga rápida
             />

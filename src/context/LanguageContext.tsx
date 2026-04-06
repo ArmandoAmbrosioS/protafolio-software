@@ -14,6 +14,153 @@ const dictionaries = {
       description: "Ingeniero de Software y Estudiante de Maestría en Ciencias de la Ingeniería (Cómputo), Bilingüe con más de 3 años de experiencia desarrollando aplicaciones web escalables y APIs de alto rendimiento. Especializado en arquitecturas Full-Stack utilizando ecosistemas de Python (Django, FastAPI) y TypeScript/React (Next.js).",
       button: "Ver mi trabajo"
     },
+    nav: {
+      home: "Inicio",
+      experience: "Experiencia",
+      work: "Proyectos",
+      photo: "Hobbies"
+    },
+    hobbiesHub: {
+      title: "Más allá del ",
+      titleAccent: "teclado.",
+      description: "El código es mi profesión, pero aquí te muestro lo que me inspira cuando apago el monitor.",
+      cards: [
+        {
+          title: "Fotografía",
+          desc: "Mi visión a través de la lente. Galería de paisajes y momentos.",
+          link: "/hobbies/photography",
+          color: "from-cyan-500/20 to-blue-500/20"
+        },
+        {
+          title: "Tennis",
+          desc: "Mi equipo en la cancha y estadísticas en tiempo real de la ATP.",
+          link: "/hobbies/tennis",
+          color: "from-emerald-500/20 to-teal-500/20"
+        },
+        {
+          title: "Gaming",
+          desc: "Estrategia y reflejos. Mis highlights y stats en Valorant.",
+          link: "/hobbies/gaming",
+          color: "from-purple-500/20 to-pink-500/20"
+        }
+      ]
+    },
+    gamingHub: {
+      backLink: "Volver a Hobbies",
+      title: "Mi perfil ",
+      titleAccent: "Gamer.",
+      description: "Estrategia, reflejos y trabajo en equipo. Aquí puedes ver mis estadísticas en tiempo real extraídas directamente de las APIs de los servidores oficiales.",
+      cards: [
+        {
+          title: "Valorant",
+          desc: "Rango actual, KDA, porcentaje de headshots y mis agentes más jugados en el shooter táctico de Riot.",
+          link: "/hobbies/gaming/valorant",
+        },
+        {
+          title: "League of Legends",
+          desc: "Mis picks en la Grieta del Invocador, maestría de campeones y winrate de la temporada.",
+          link: "/hobbies/gaming/lol",
+        },
+        {
+          title: "Overwatch 2",
+          desc: "Estadísticas de daño, curación y horas jugadas con mis héroes favoritos en partidas competitivas.",
+          link: "/hobbies/gaming/overwatch",
+        }
+      ],
+      valorant: {
+        subtitle: "Setup de Valorant",
+        title: "Agente Principal de ",
+        titleAccent: "Armando.", // Aquí va tu nombre
+        description: "Controlador no binario de Escocia. Táctico, sutil y con una conexión única con las mariposas moradas que brillan a su alrededor.",
+        riotId: "Riot ID",
+        mapTitle: "Mapa Favorito",
+        weaponTitle: "Arma Favorita",
+        stats: {
+          currentRank: "Rango Actual",
+          peakRank: "Peak Rank",
+          kd: "K/D Ratio",
+          winrate: "Win Rate"
+        },
+        signatureStats: "Estadísticas Clave"
+      },
+      lol: {
+        subtitle: "SISTEMA HEXTECH",
+        title: "Expediente de ",
+        titleAccent: "Invocador",
+        description: "Análisis táctico y registros de combate en la Grieta del Invocador.",
+        staticData: {
+          riotId: "Riot ID",
+          favSkin: "Skin Favorita",
+          currentRank: "Rango Actual",
+          peakRank: "Peak Rank",
+          hatedChamp: "Campeón que más odio",
+          hatedChampImg: "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/Milio.png"
+        },
+        myProfile: {
+          riotId: "dyfit#1017",
+          favSkin: "Vayne Flor Espiritual",
+          currentRank: "Esmeralda II",
+          peakRank: "Diamante I",
+          hatedChamp: "Milio",
+          hatedChampImg: "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/Milio.png"
+        },
+        champions: [
+          { 
+            name: "Vayne", 
+            title: "La Cazadora Umbría", 
+            role: "Tirador", 
+            mastery: "1,240,500 pts",
+            desc: "Especialista en destruir tanques y movilidad extrema en duelos 1v1. Mi pick de confort cuando la partida requiere un carry de alto riesgo.",
+            splash: "/images/gaming/lol/vayne-bg.jpg",
+            png: "/images/gaming/lol/vayne.png"
+          },
+          { 
+            name: "Kalista", 
+            title: "El Espíritu de la Venganza", 
+            role: "Tirador", 
+            mastery: "850,200 pts",
+            desc: "Kiteo absoluto y control de objetivos. Su pasiva me permite reposicionarme en cada básico, y la acumulación de lanzas la hace letal para dominar la línea.",
+            splash: "/images/gaming/lol/kalista-bg.jpg",
+            png: "/images/gaming/lol/kalista.png"
+          },
+          { 
+            name: "Jinx", 
+            title: "La Bala Perdida", 
+            role: "Tirador", 
+            mastery: "620,000 pts",
+            desc: "Caos total. Su pasiva permite encadenar asesinatos y objetivos de una forma que ningún otro campeón puede igualar.",
+            splash: "/images/gaming/lol/jinx-bg.jpg",
+            png: "/images/gaming/lol/jinx.png"
+          }
+        ]
+      },
+      overwatch: {
+        subtitle: "RED DE VANGUARDIA",
+        title: "Dossier de ",
+        titleAccent: "Agente",
+        description: "Estadísticas extraídas en tiempo real de la base de datos oficial de Overwatch. Análisis de rendimiento histórico y actual.",
+        ranksTitle: "División Competitiva",
+        scopeLabel: "Histórico Competitivo", // 👈 NUEVO: Aclara el filtro
+        roles: { tank: "Tanque", damage: "Daño", support: "Apoyo" },
+        modes: {
+          competitive: "Temporada Actual (Comp)",
+          quickplay: "Histórico Global (QP)"
+        },
+        career: {
+          title: "Hoja de Servicio",
+          wins: "Victorias Totales",
+          winrate: "Win Rate Global", // 👈 Asegúrate de que esta línea exista aquí
+          kda: "KDA Promedio",
+          time: "Tiempo Jugado"
+        },
+        statsCategories: {
+          played: "Héroes Más Jugados",
+          wins: "Partidas Ganadas",   // 👈 Y que esta otra esté aquí
+          elims: "Eliminaciones por Vida",
+          kda: "Mejores KDA"
+        }
+      },
+    },
     services: {
       subtitle: "CÓMO TRABAJO",
       title: "Soluciones Digitales de ",
@@ -92,10 +239,42 @@ const dictionaries = {
       ]
     },
     hobbies: {
+      backLink: "Volver al portafolio",
       subtitle: "MÁS ALLÁ DEL CÓDIGO",
       title: "Mi visión a través de la ",
       titleAccent: "lente.",
-      description: "Cuando no estoy estructurando bases de datos o optimizando el rendimiento web, me dedico a capturar el mundo real. Aquí una pequeña muestra de mi trabajo fotográfico."
+      description: "Cuando no estoy estructurando bases de datos u optimizando el rendimiento web, me dedico a capturar el mundo real. Aquí una pequeña muestra de mi trabajo fotográfico.",
+      
+      // NUEVOS TEXTOS DE FOTOGRAFÍA (ESPAÑOL)
+      loadMore: "Cargar más fotografías",
+      photoTag: "FOTOGRAFÍA",
+      gallery: [
+        { id: 1, src: "/images/gallery/foto1.jpg", title: "Atardecer en la Ciudad", desc: "El sol cayendo sobre los rascacielos. Una captura que demuestra el contraste entre la naturaleza y el concreto." },
+        { id: 2, src: "/images/gallery/foto2.jpg", title: "Sombras Urbanas", desc: "Juego de luces y sombras en un callejón estrecho durante la hora dorada." },
+        { id: 3, src: "/images/gallery/foto3.jpg", title: "Naturaleza Viva", desc: "Macro fotografía explorando las texturas ocultas en la flora local." },
+        { id: 4, src: "/images/gallery/foto4.jpg", title: "Perspectiva Panorámica", desc: "El horizonte extendido. Captura en gran angular que desafía la percepción de la distancia." },
+        { id: 5, src: "/images/gallery/foto5.jpg", title: "Perspectiva Panorámica", desc: "El horizonte extendido. Captura en gran angular que desafía la percepción de la distancia." }
+      ]
+    },
+    tennis: {
+      subtitle: "EN LA CANCHA",
+      title: "Mi pasión por el ",
+      titleAccent: "Tennis.",
+      description: "El deporte que me enseña sobre disciplina, estrategia y resiliencia. Aquí te comparto mi equipo y las estadísticas de mis jugadores favoritos.",
+      gearTitle: "Mi Equipo (Loadout)",
+      gear: [
+        { item: "Raqueta", name: "Babolat Pure Aero", desc: "Spin y potencia para el fondo de la cancha.", image: "/images/tennis/raqueta.jpg", fullDesc: "Diseñada para maximizar el spin. Con un marco aerodinámico, me permite generar mayor velocidad de cabeza para tiros profundos y pesados. Es mi arma principal en torneos." },
+        { item: "Cuerdas", name: "Toroline O-Toro Tour", desc: "Tensión a 54 lbs para máximo control.", image: "/images/tennis/cuerdas.jpg", fullDesc: "Cuerdas de copoliéster que muerden la pelota increíblemente bien. Mantenerlas a 54 libras me da el equilibrio perfecto entre potencia y control direccional." },
+        { item: "Calzado", name: "Nike Air Zoom Vapor Cage 4", desc: "Estabilidad pura en pista dura.", image: "/images/tennis/calzado.jpg", fullDesc: "El tenis es un deporte de pies. Estas Nikes me dan la confianza para deslizarme en canchas duras y frenar en seco sin miedo a torceduras." }
+      ],
+      atpTitle: "Jugadores Favoritos",
+      liveStatus: "Conexión Segura (API/Fallback)",
+      // NUEVO: Información extendida para el modal de jugadores
+      playersInfo: {
+        "Carlos Alcaraz": { image: "/images/tennis/alcaraz.jpg", fullDesc: "El prodigio español. Su estilo explosivo, velocidad en la cancha y mentalidad agresiva son mi mayor inspiración a la hora de jugar." },
+        "Rafa Nadal": { image: "/images/tennis/nadal.jpg", fullDesc: "El rey de la arcilla. Su resiliencia, deportividad y espíritu de lucha inquebrantable me enseñaron a jugar cada punto como si fuera el último." },
+        "Emma Raducanu": { image: "/images/tennis/raducanu.jpg", fullDesc: "Pura técnica y fluidez. Su histórica victoria en el US Open viniendo desde la qualy es un recordatorio de que con la mentalidad correcta, todo es posible." }
+      }
     },
     contact: {
       status: "Disponible para nuevas oportunidades",
@@ -126,6 +305,152 @@ const dictionaries = {
       headlineAccent: "Developer.", 
       description: "Software Engineer and Master of Science in Engineering (Computer Science) student, bilingual with over 3 years of experience developing scalable web applications and high-performance APIs. Specialized in full-stack architectures using Python (Django, FastAPI) and TypeScript/React (Next.js) ecosystems.",
       button: "View my work"
+    },
+    nav: {
+      home: "Home",
+      experience: "Experience",
+      work: "Work",
+      photo: "Hobbies"
+    },
+    hobbiesHub: {
+      title: "Beyond the ",
+      titleAccent: "keyboard.",
+      description: "Code is my profession, but here is what inspires me when I turn off the monitor.",
+      cards: [
+        {
+          title: "Photography",
+          desc: "My vision through the lens. Gallery of landscapes and moments.",
+          link: "/hobbies/photography",
+          color: "from-cyan-500/20 to-blue-500/20"
+        },
+        {
+          title: "Tennis",
+          desc: "My gear on the court and real-time ATP statistics.",
+          link: "/hobbies/tennis",
+          color: "from-emerald-500/20 to-teal-500/20"
+        },
+        {
+          title: "Gaming",
+          desc: "Strategy and reflexes. My highlights and Valorant stats.",
+          link: "/hobbies/gaming",
+          color: "from-purple-500/20 to-pink-500/20"
+        }
+      ]
+    },
+    gamingHub: {
+      backLink: "Back to Hobbies",
+      title: "My Gamer ",
+      titleAccent: "Profile.",
+      description: "Strategy, reflexes, and teamwork. Here you can see my real-time statistics pulled directly from official server APIs.",
+      cards: [
+        {
+          title: "Valorant",
+          desc: "Current rank, KDA, headshot percentage, and my most played agents in Riot's tactical shooter.",
+          link: "/hobbies/gaming/valorant",
+        },
+        {
+          title: "League of Legends",
+          desc: "My picks on the Summoner's Rift, champion mastery, and season winrate.",
+          link: "/hobbies/gaming/lol",
+        },
+        {
+          title: "Overwatch 2",
+          desc: "Damage, healing stats, and hours played with my favorite heroes in competitive matches.",
+          link: "/hobbies/gaming/overwatch",
+        }
+      ],
+      valorant: {
+        subtitle: "Valorant Setup",
+        title: "Main Agent of ",
+        titleAccent: "Armando.",
+        description: "Non-binary Controller from Scotland. Tactical, subtle, and with a unique connection to the glowing purple butterflies that surround them.",
+        riotId: "Riot ID",
+        mapTitle: "Favorite Map",
+        weaponTitle: "Favorite Weapon",
+        stats: {
+          currentRank: "Current Rank",
+          peakRank: "Peak Rank",
+          kd: "K/D Ratio",
+          winrate: "Win Rate"
+        },
+        signatureStats: "Signature Stats"
+      },
+      lol: {
+        subtitle: "HEXTECH SYSTEM",
+        title: "Summoner ",
+        titleAccent: "Dossier",
+        description: "Tactical analysis and combat records on the Summoner's Rift.",
+        staticData: {
+          riotId: "Riot ID",
+          favSkin: "Favorite Skin",
+          currentRank: "Current Rank",
+          peakRank: "Peak Rank",
+          hatedChamp: "Most Hated Champion",
+          hatedChampImg: "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/Milio.png"
+        },
+        myProfile: {
+          riotId: "dyfit#1017",
+          favSkin: "Spirit Blossom Vayne",
+          currentRank: "Emerald II",
+          peakRank: "Diamond I",
+          hatedChamp: "Milio",
+          hatedChampImg: "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/Milio.png"
+        },
+        champions: [
+          { 
+            name: "Vayne", 
+            title: "The Night Hunter", 
+            role: "Marksman", 
+            mastery: "1,240,500 pts",
+            desc: "Specialist in shredding tanks and extreme mobility in 1v1 duels. My comfort pick when the match requires a high-risk carry.",
+            splash: "/images/gaming/lol/vayne-bg.jpg",
+            png: "/images/gaming/lol/vayne.png"
+          },
+          { 
+            name: "Kalista", 
+            title: "The Spear of Vengeance", 
+            role: "Marksman", 
+            mastery: "850,200 pts",
+            desc: "Absolute kiting and objective control. Her passive allows me to reposition with every auto-attack, and stacking spears makes her lethal for dominating the lane.",
+            splash: "/images/gaming/lol/kalista-bg.jpg",
+            png: "/images/gaming/lol/kalista.png"
+          },
+          { 
+            name: "Jinx", 
+            title: "The Loose Cannon", 
+            role: "Marksman", 
+            mastery: "620,000 pts",
+            desc: "Total chaos. Her passive allows chaining kills and objectives in a way no other champion can match.",
+            splash: "/images/gaming/lol/jinx-bg.jpg",
+            png: "/images/gaming/lol/jinx.png"
+          }
+        ]
+      },
+      overwatch: {
+        subtitle: "VANGUARD NETWORK",
+        title: "Agent ",
+        titleAccent: "Dossier",
+        description: "Real-time statistics extracted from the official Overwatch database. Analysis of historical and current performance.",
+        ranksTitle: "Competitive Division",
+        roles: { tank: "Tank", damage: "Damage", support: "Support" },
+        modes: {
+          competitive: "Current Season (Comp)",
+          quickplay: "Lifetime Stats (QP)"
+        },
+        career: {
+          title: "Service Record",
+          wins: "Total Wins",
+          winrate: "Global Win Rate",
+          kda: "Average KDA",
+          time: "Time Played"
+        },
+        statsCategories: {
+          played: "Most Played Heroes",
+          wins: "Games Won",
+          elims: "Eliminations per Life",
+          kda: "Best KDA"
+        }
+      },
     },
     services: {
       subtitle: "HOW I WORK",
@@ -206,10 +531,40 @@ const dictionaries = {
       ]
     },
     hobbies: {
+      backLink: "Back to portfolio",
       subtitle: "BEYOND THE CODE",
       title: "My vision through the ",
       titleAccent: "lens.",
-      description: "When I'm not structuring databases or optimizing web performance, I spend my time capturing the real world. Here is a small glimpse of my photography work."
+      description: "When I'm not structuring databases or optimizing web performance, I spend my time capturing the real world. Here is a small glimpse of my photography work.",
+      
+      // NUEVOS TEXTOS DE FOTOGRAFÍA (INGLÉS)
+      loadMore: "Load more photographs",
+      photoTag: "PHOTOGRAPHY",
+      gallery: [
+        { id: 1, src: "/images/gallery/foto1.jpg", title: "City Sunset", desc: "The sun setting over the skyscrapers. A shot that shows the contrast between nature and concrete." },
+        { id: 2, src: "/images/gallery/foto2.jpg", title: "Urban Shadows", desc: "Play of light and shadows in a narrow alley during golden hour." },
+        { id: 3, src: "/images/gallery/foto3.jpg", title: "Living Nature", desc: "Macro photography exploring hidden textures in local flora." },
+        { id: 4, src: "/images/gallery/foto4.jpg", title: "Panoramic Perspective", desc: "The extended horizon. Wide-angle shot challenging distance perception." }
+      ]
+    },
+    tennis: {
+      subtitle: "ON THE COURT",
+      title: "My passion for ",
+      titleAccent: "Tennis.",
+      description: "The sport that teaches me about discipline, strategy, and resilience. Here is my gear and the stats of my favorite players.",
+      gearTitle: "My Gear (Loadout)",
+      gear: [
+        { item: "Racquet", name: "Babolat Pure Aero", desc: "Spin and power from the baseline.", image: "/images/tennis/raqueta.jpg", fullDesc: "Designed to maximize spin. With an aerodynamic frame, it allows me to generate more racquet head speed for deep, heavy shots. It's my main weapon in tournaments." },
+        { item: "Strings", name: "Toroline O-Toro Tour", desc: "Strung at 54 lbs for maximum control.", image: "/images/tennis/cuerdas.jpg", fullDesc: "Co-polyester strings that bite the ball incredibly well. Keeping them at 54 pounds gives me the perfect balance between power and directional control." },
+        { item: "Shoes", name: "Nike Air Zoom Vapor Cage 4", desc: "Pure stability on hard courts.", image: "/images/tennis/calzado.jpg", fullDesc: "Tennis is a game of footwork. These Nikes give me the confidence to slide on hard courts and stop abruptly without fear of twisting an ankle." }
+      ],
+      atpTitle: "Favorite Players",
+      liveStatus: "Secure Connection (API/Fallback)",
+      playersInfo: {
+        "Carlos Alcaraz": { image: "/images/tennis/alcaraz.jpg", fullDesc: "The Spanish prodigy. His explosive style, court speed, and aggressive mentality are my biggest inspirations when I play." },
+        "Rafa Nadal": { image: "/images/tennis/nadal.jpg", fullDesc: "The king of clay. His resilience, sportsmanship, and unbreakable fighting spirit taught me to play every point as if it were the last." },
+        "Emma Raducanu": { image: "/images/tennis/raducanu.jpg", fullDesc: "Pure technique and fluidity. Her historic US Open victory coming from the qualifiers is a reminder that with the right mindset, anything is possible." }
+      }
     },
     contact: {
       status: "Available for new opportunities",

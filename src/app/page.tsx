@@ -17,7 +17,6 @@ export default function Home() {
       <Services />
       <Experience />
       <Projects />
-      <Photography />
       <TechStack />
       <Footer />
     </main>
