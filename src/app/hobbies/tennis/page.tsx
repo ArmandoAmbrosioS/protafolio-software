@@ -123,7 +123,7 @@ export default function TennisPage() {
                       ))
                    ) : (
                       players.map((player, idx) => {
-                        const extendedInfo = t.tennis.playersInfo[player.name]; 
+                        const extendedInfo = (t.tennis.playersInfo as Record<string, any>)[player.name]; 
                         
                         return (
                           <motion.div 
