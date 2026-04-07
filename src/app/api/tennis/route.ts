@@ -73,7 +73,7 @@ export async function GET() {
       { rank: 'Retired', name: "Rafa Nadal", points: "--", country: "ESP", flag: "🇪🇸", icon: "target" }
     ];
 
-    fallbackData.sort((a, b) => a.rank - b.rank);
+    fallbackData.sort((a: any, b: any) => (a.rank as number) - (b.rank as number));
     return NextResponse.json(fallbackData);
   }
 }
