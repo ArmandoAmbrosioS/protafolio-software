@@ -433,6 +433,7 @@ const dictionaries = {
         titleAccent: "Dossier",
         description: "Real-time statistics extracted from the official Overwatch database. Analysis of historical and current performance.",
         ranksTitle: "Competitive Division",
+        scopeLabel: "Competitive History", 
         roles: { tank: "Tank", damage: "Damage", support: "Support" },
         modes: {
           competitive: "Current Season (Comp)",
@@ -612,7 +613,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   if (!mounted) return null;
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t: dictionaries[language] }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t: dictionaries[language] as any }}>
       {children}
     </LanguageContext.Provider>
   );
