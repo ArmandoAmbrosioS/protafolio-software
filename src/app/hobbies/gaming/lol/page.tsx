@@ -1,4 +1,3 @@
-// src/app/hobbies/gaming/lol/page.tsx
 "use client"
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight, ShieldAlert, Trophy, Star, Target, Ghost } from "lucide-react";
@@ -13,11 +12,11 @@ export default function LoLInteractivePage() {
   const { t } = useLanguage();
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // 🛡️ Extraemos los datos de manera segura
-  const lolData = t.gamingHub?.lol;
-  const champs = lolData?.champions || []; // Si no encuentra campeones, usa un array vacío
 
-  // 👇 AQUÍ ESTÁ EL CAMBIO: Leemos del diccionario bilingüe con un respaldo seguro 👇
+  const lolData = t.gamingHub?.lol;
+  const champs = lolData?.champions || []; 
+
+
   const myProfile = lolData?.myProfile || {
     riotId: "dyfit#1017",
     favSkin: "Vayne Flor Espiritual",
@@ -27,7 +26,7 @@ export default function LoLInteractivePage() {
     hatedChampImg: "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/Milio.png"
   };
 
-  // Prevenimos crasheos si el array está vacío
+
   const nextChamp = () => {
     if (champs.length > 0) setActiveIdx((prev) => (prev + 1) % champs.length);
   };
@@ -35,7 +34,7 @@ export default function LoLInteractivePage() {
     if (champs.length > 0) setActiveIdx((prev) => (prev - 1 + champs.length) % champs.length);
   };
 
-  // Si el diccionario aún no carga, mostramos una pantalla oscura de carga rápida
+
   if (!lolData || champs.length === 0) {
     return <div className="min-h-screen bg-[#010a13] flex items-center justify-center text-[#c8aa6e] font-mono">Cargando sistema Hextech...</div>;
   }
@@ -45,18 +44,18 @@ export default function LoLInteractivePage() {
       <ThemeToggle />
       <LanguageToggle />
 
-      {/* 🔴 FONDO DINÁMICO GIGANTE (SIGUE ADAPTÁNDOSE CON EL SPLASH) 🔴 */}
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeIdx}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }} // Sutil opacidad de fondo
+          animate={{ opacity: 0.2 }} 
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
           className="absolute inset-0 z-0"
         >
           <Image 
-            src={champs[activeIdx].splash} // Sigue usando el Splash completo para el fondo
+            src={champs[activeIdx].splash} 
             alt="Background" 
             fill 
             className="object-cover"
@@ -130,7 +129,7 @@ export default function LoLInteractivePage() {
             </div>
           </motion.div>
 
-          {/* 🔵 BLOQUE CENTRAL: CARRUSEL DE CAMPEONES REDISEÑADO 🔵 */}
+
           <div className="lg:col-span-8 relative">
             <div className="flex items-center justify-between mb-6">
                <h2 className="text-[#c8aa6e] font-mono text-xs tracking-[0.4em] uppercase">Champion Records</h2>
@@ -151,22 +150,22 @@ export default function LoLInteractivePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.05 }}
                 transition={{ duration: 0.5 }}
-                // 👇 NUEVO DISEÑO FLEX SIDE-BY-SIDE 👇
+              
                 className="relative min-h-[500px] w-full rounded-3xl overflow-hidden border-2 border-[#c8aa6e]/20 bg-[#091428]/90 backdrop-blur-md flex flex-col md:flex-row group shadow-2xl"
               >
                 
-                {/* 🔴 Contenedor de la Imagen PNG Flotante 🔴 */}
+
                 <div className="relative w-full md:w-1/2 h-64 md:h-auto flex-shrink-0">
                    <Image 
-                      src={champs[activeIdx].png} // 👇 Usamos el Render PNG transparente
+                      src={champs[activeIdx].png} 
                       alt={champs[activeIdx].name} 
                       fill 
-                      // 👇 object-contain y drop-shadow para el efecto flotante
+                      
                       className="object-contain p-8 transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_0_30px_rgba(200,170,110,0.3)]"
                    />
                 </div>
                 
-                {/* 🔵 Contenedor de la Información a un lado 🔵 */}
+
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-[#c8aa6e]/10">
                   <div className="flex items-center gap-3 text-[#c8aa6e] font-mono text-xs uppercase tracking-widest mb-2 leading-tight tracking-tight">
                     <Ghost size={16} /> {champs[activeIdx].role}

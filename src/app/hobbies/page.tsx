@@ -1,4 +1,3 @@
-// src/app/hobbies/page.tsx
 "use client"
 import { motion } from "framer-motion";
 import { ArrowLeft, Camera, Trophy, Gamepad2 } from "lucide-react";
@@ -8,7 +7,7 @@ import ThemeToggle from "@/src/components/ThemeToggle";
 import LanguageToggle from "@/src/components/LanguageToggle";
 import { useRef } from "react";
 
-// 1. Sub-componente Inteligente para manejar cada video de forma independiente
+
 const VideoCard = ({ card, index, icon: Icon, videoSrc }: { card: any, index: number, icon: any, videoSrc: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -20,9 +19,7 @@ const VideoCard = ({ card, index, icon: Icon, videoSrc }: { card: any, index: nu
 
   const handleMouseLeave = () => {
     if (videoRef.current) {
-      videoRef.current.pause();
-      // Opcional: Si quieres que el video se regrese al inicio al quitar el mouse, descomenta la siguiente línea:
-      // videoRef.current.currentTime = 0; 
+      videoRef.current.pause(); 
     }
   };
 
@@ -46,7 +43,7 @@ const VideoCard = ({ card, index, icon: Icon, videoSrc }: { card: any, index: nu
           className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
         />
         
-        {/* OVERLAY OSCURO (Para que el texto siempre sea legible) */}
+
         <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-700" />
 
         {/* CONTENIDO DE LA TARJETA */}
@@ -71,7 +68,7 @@ const VideoCard = ({ card, index, icon: Icon, videoSrc }: { card: any, index: nu
 export default function HobbiesHub() {
   const { t } = useLanguage();
 
-  // Mapeamos los íconos y las rutas de los videos en el orden de tu diccionario
+
   const icons = [Camera, Trophy, Gamepad2];
   const videoPaths = [
     "/videos/photography.mp4",

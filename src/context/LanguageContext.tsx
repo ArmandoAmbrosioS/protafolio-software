@@ -1,4 +1,3 @@
-// src/context/LanguageContext.tsx
 "use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
@@ -23,7 +22,7 @@ const dictionaries = {
     hobbiesHub: {
       title: "Más allá del ",
       titleAccent: "teclado.",
-      description: "El código es mi profesión, pero aquí te muestro lo que me inspira cuando apago el monitor.",
+      description: "El código es mi profesión, pero aquí te muestro lo que me inspira cuando no estoy programando.",
       cards: [
         {
           title: "Fotografía",
@@ -33,13 +32,13 @@ const dictionaries = {
         },
         {
           title: "Tennis",
-          desc: "Mi equipo en la cancha y estadísticas en tiempo real de la ATP.",
+          desc: "Mi equipo en la cancha y jugadores favoritos.",
           link: "/hobbies/tennis",
           color: "from-emerald-500/20 to-teal-500/20"
         },
         {
           title: "Gaming",
-          desc: "Estrategia y reflejos. Mis highlights y stats en Valorant.",
+          desc: "Estrategia y reflejos. Mis estadisticas en mis videojuegos favoritos.",
           link: "/hobbies/gaming",
           color: "from-purple-500/20 to-pink-500/20"
         }
@@ -53,7 +52,7 @@ const dictionaries = {
       cards: [
         {
           title: "Valorant",
-          desc: "Rango actual, KDA, porcentaje de headshots y mis agentes más jugados en el shooter táctico de Riot.",
+          desc: "Rango actual, KDA, porcentaje de headshots y mi agente más jugado en el shooter táctico de Riot.",
           link: "/hobbies/gaming/valorant",
         },
         {
@@ -70,7 +69,7 @@ const dictionaries = {
       valorant: {
         subtitle: "Setup de Valorant",
         title: "Agente Principal de ",
-        titleAccent: "Armando.", // Aquí va tu nombre
+        titleAccent: "Armando.", 
         description: "Controlador no binario de Escocia. Táctico, sutil y con una conexión única con las mariposas moradas que brillan a su alrededor.",
         riotId: "Riot ID",
         mapTitle: "Mapa Favorito",
@@ -140,7 +139,7 @@ const dictionaries = {
         titleAccent: "Agente",
         description: "Estadísticas extraídas en tiempo real de la base de datos oficial de Overwatch. Análisis de rendimiento histórico y actual.",
         ranksTitle: "División Competitiva",
-        scopeLabel: "Histórico Competitivo", // 👈 NUEVO: Aclara el filtro
+        scopeLabel: "Histórico Competitivo", 
         roles: { tank: "Tanque", damage: "Daño", support: "Apoyo" },
         modes: {
           competitive: "Temporada Actual (Comp)",
@@ -149,13 +148,13 @@ const dictionaries = {
         career: {
           title: "Hoja de Servicio",
           wins: "Victorias Totales",
-          winrate: "Win Rate Global", // 👈 Asegúrate de que esta línea exista aquí
+          winrate: "Win Rate Global", 
           kda: "KDA Promedio",
           time: "Tiempo Jugado"
         },
         statsCategories: {
           played: "Héroes Más Jugados",
-          wins: "Partidas Ganadas",   // 👈 Y que esta otra esté aquí
+          wins: "Partidas Ganadas",   
           elims: "Eliminaciones por Vida",
           kda: "Mejores KDA"
         }
@@ -227,14 +226,14 @@ const dictionaries = {
           description: "Sistema de monitoreo urbano para detectar anomalías sonoras y baches en tiempo real. Desarrollado para Hackathon Smart City HMO 2026."
         },
         {
-          title: "Emotional AI Agents",
-          category: "IA / NLP",
-          description: "Agentes conversacionales con análisis de sentimiento utilizando la API de ChatGPT. Proyecto de tesis de maestría."
-        },
-        {
           title: "Cabus Transportaciones",
           category: "Full-Stack",
           description: "Landing page con funcionalidad de reserva de transporte para o hacia el aéropuerto de Ciudad Obregón."
+        },
+        {
+          title: "Emotional AI Agents",
+          category: "IA / NLP",
+          description: "Agentes conversacionales con análisis de sentimiento utilizando la API de ChatGPT. Proyecto de tesis de maestría."
         }
       ]
     },
@@ -245,15 +244,15 @@ const dictionaries = {
       titleAccent: "lente.",
       description: "Cuando no estoy estructurando bases de datos u optimizando el rendimiento web, me dedico a capturar el mundo real. Aquí una pequeña muestra de mi trabajo fotográfico.",
       
-      // NUEVOS TEXTOS DE FOTOGRAFÍA (ESPAÑOL)
+      
       loadMore: "Cargar más fotografías",
       photoTag: "FOTOGRAFÍA",
       gallery: [
-        { id: 1, src: "/images/gallery/foto1.jpg", title: "Atardecer en la Ciudad", desc: "El sol cayendo sobre los rascacielos. Una captura que demuestra el contraste entre la naturaleza y el concreto." },
-        { id: 2, src: "/images/gallery/foto2.jpg", title: "Sombras Urbanas", desc: "Juego de luces y sombras en un callejón estrecho durante la hora dorada." },
-        { id: 3, src: "/images/gallery/foto3.jpg", title: "Naturaleza Viva", desc: "Macro fotografía explorando las texturas ocultas en la flora local." },
-        { id: 4, src: "/images/gallery/foto4.jpg", title: "Perspectiva Panorámica", desc: "El horizonte extendido. Captura en gran angular que desafía la percepción de la distancia." },
-        { id: 5, src: "/images/gallery/foto5.jpg", title: "Perspectiva Panorámica", desc: "El horizonte extendido. Captura en gran angular que desafía la percepción de la distancia." }
+        { id: 1, src: "/images/gallery/foto1.jpg", title: "Biznaga.", desc: "La belleza del desierto. Su composición abstracta con patrones complejos en el centro la hacen una maravilla digna de apreciar." },
+        { id: 2, src: "/images/gallery/foto2.jpg", title: "Rosa en el desierto.", desc: "La rosa que crece en el desierto." },
+        { id: 3, src: "/images/gallery/foto3.jpg", title: "Sahuaros.", desc: "Hermosa fotografía de sahuaros en un encuadre con regla de los tercios." },
+        { id: 4, src: "/images/gallery/foto4.jpg", title: "Otra Biznaga.", desc: "¿Ya les conté que me gusta fotografiar Biznagas?" },
+        { id: 5, src: "/images/gallery/foto5.jpg", title: "Guts.", desc: "Mi versión de portada del album Guts de Olivia Rodrigo." }
       ]
     },
     tennis: {
@@ -269,7 +268,7 @@ const dictionaries = {
       ],
       atpTitle: "Jugadores Favoritos",
       liveStatus: "Conexión Segura (API/Fallback)",
-      // NUEVO: Información extendida para el modal de jugadores
+      
       playersInfo: {
         "Carlos Alcaraz": { image: "/images/tennis/alcaraz.jpg", fullDesc: "El prodigio español. Su estilo explosivo, velocidad en la cancha y mentalidad agresiva son mi mayor inspiración a la hora de jugar." },
         "Rafa Nadal": { image: "/images/tennis/nadal.jpg", fullDesc: "El rey de la arcilla. Su resiliencia, deportividad y espíritu de lucha inquebrantable me enseñaron a jugar cada punto como si fuera el último." },
@@ -315,7 +314,7 @@ const dictionaries = {
     hobbiesHub: {
       title: "Beyond the ",
       titleAccent: "keyboard.",
-      description: "Code is my profession, but here is what inspires me when I turn off the monitor.",
+      description: "Code is my profession, but here is what inspires me when I am not coding.",
       cards: [
         {
           title: "Photography",
@@ -325,13 +324,13 @@ const dictionaries = {
         },
         {
           title: "Tennis",
-          desc: "My gear on the court and real-time ATP statistics.",
+          desc: "My gear on the court and favorite players.",
           link: "/hobbies/tennis",
           color: "from-emerald-500/20 to-teal-500/20"
         },
         {
           title: "Gaming",
-          desc: "Strategy and reflexes. My highlights and Valorant stats.",
+          desc: "Strategy and reflexes. My favorite games stats.",
           link: "/hobbies/gaming",
           color: "from-purple-500/20 to-pink-500/20"
         }
@@ -345,12 +344,12 @@ const dictionaries = {
       cards: [
         {
           title: "Valorant",
-          desc: "Current rank, KDA, headshot percentage, and my most played agents in Riot's tactical shooter.",
+          desc: "Current rank, KDA, headshot percentage, and my most played agent in Riot's tactical shooter.",
           link: "/hobbies/gaming/valorant",
         },
         {
           title: "League of Legends",
-          desc: "My picks on the Summoner's Rift, champion mastery, and season winrate.",
+          desc: "My picks on the Summoner's Rift, champion mastery, and season ranks.",
           link: "/hobbies/gaming/lol",
         },
         {
@@ -518,15 +517,15 @@ const dictionaries = {
           description: "Urban monitoring system to detect sound anomalies and potholes in real-time. Developed for Hackathon Smart City HMO 2026."
         },
         {
+          title: "Cabus Transportaciones",
+          category: "Full-Stack",
+          description: "Landing page with transportation booking functionality to or from Ciudad Obregón airport."
+        },
+        {
           title: "Emotional AI Agents",
           category: "AI / NLP",
           description: "Conversational agents with sentiment analysis using ChatGPT API. MD Thesis project."
         },
-        {
-          title: "Cabus Transportaciones",
-          category: "Full-Stack",
-          description: "Landing page with transportation booking functionality to or from Ciudad Obregón airport."
-        }
         
       ]
     },
@@ -537,14 +536,15 @@ const dictionaries = {
       titleAccent: "lens.",
       description: "When I'm not structuring databases or optimizing web performance, I spend my time capturing the real world. Here is a small glimpse of my photography work.",
       
-      // NUEVOS TEXTOS DE FOTOGRAFÍA (INGLÉS)
+  
       loadMore: "Load more photographs",
       photoTag: "PHOTOGRAPHY",
       gallery: [
-        { id: 1, src: "/images/gallery/foto1.jpg", title: "City Sunset", desc: "The sun setting over the skyscrapers. A shot that shows the contrast between nature and concrete." },
-        { id: 2, src: "/images/gallery/foto2.jpg", title: "Urban Shadows", desc: "Play of light and shadows in a narrow alley during golden hour." },
-        { id: 3, src: "/images/gallery/foto3.jpg", title: "Living Nature", desc: "Macro photography exploring hidden textures in local flora." },
-        { id: 4, src: "/images/gallery/foto4.jpg", title: "Panoramic Perspective", desc: "The extended horizon. Wide-angle shot challenging distance perception." }
+        { id: 1, src: "/images/gallery/foto1.jpg", title: "Biznaga", desc: "Its abstract composition with complex patterns in the center makes it a wonder worth appreciating." },
+        { id: 2, src: "/images/gallery/foto2.jpg", title: "Rose in the desert.", desc: "The rose that grows in the desert." },
+        { id: 3, src: "/images/gallery/foto3.jpg", title: "Saguaros", desc: "Beautiful photograph of saguaros in a frame with the rule of thirds." },
+        { id: 4, src: "/images/gallery/foto4.jpg", title: "Another Biznaga.", desc: "Did I already tell you that I like to photograph barrel cacti?" },
+        { id: 5, src: "/images/gallery/foto5.jpg", title: "Guts.", desc: "My version of the cover of Olivia Rodrigo's album Guts." }
       ]
     },
     tennis: {

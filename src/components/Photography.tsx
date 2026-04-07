@@ -1,35 +1,34 @@
-// src/components/Photography.tsx
 "use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Camera } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
-// Arreglo de tus fotografías
+
 const photos = [
   {
     id: 1,
     src: "/images/gallery/foto1.jpg", 
     alt: "Fotografía de paisaje",
-    className: "md:col-span-2 md:row-span-2" // Foto principal grande
+    className: "md:col-span-2 md:row-span-2"
   },
   {
     id: 2,
     src: "/images/gallery/foto2.jpg",
     alt: "Fotografía urbana",
-    className: "md:col-span-1 md:row-span-1" // Cuadrado normal
+    className: "md:col-span-1 md:row-span-1" 
   },
   {
     id: 3,
     src: "/images/gallery/foto3.jpg",
     alt: "Fotografía nocturna",
-    className: "md:col-span-1 md:row-span-1" // Cuadrado normal
+    className: "md:col-span-1 md:row-span-1" 
   },
   {
     id: 4,
     src: "/images/gallery/foto4.jpg",
     alt: "Fotografía de retrato",
-    className: "md:col-span-3 md:row-span-1 h-64 md:h-auto" // Banner panorámico abajo
+    className: "md:col-span-3 md:row-span-1 h-64 md:h-auto" 
   }
 ];
 
@@ -61,7 +60,6 @@ export default function Photography() {
           </motion.div>
         </div>
 
-        {/* 🟢 El Grid "Bento Box" */}
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-4 md:gap-6">
           {photos.map((photo, index) => (
             <motion.div
@@ -77,7 +75,7 @@ export default function Photography() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw" // Evitamos el warning de tamaños
+                sizes="(max-width: 768px) 100vw, 50vw" 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               

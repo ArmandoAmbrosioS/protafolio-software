@@ -1,4 +1,3 @@
-// src/app/api/lol/route.ts
 import { NextResponse } from 'next/server';
 
 export const revalidate = 3600; // Caché de 1 hora
@@ -6,13 +5,13 @@ export const revalidate = 3600; // Caché de 1 hora
 export async function GET() {
   const apiKey = process.env.RIOT_API_KEY;
   
-  // 1. Configura tu Riot ID aquí (separando nombre y etiqueta)
-  const gameName = "dyfit"; // Tu nombre antes del # (Cámbialo por el tuyo)
-  const tagLine = "1017";      // Tu etiqueta después del # (Cámbialo por el tuyo)
+  // 1. Configurar Riot ID
+  const gameName = "dyfit"; 
+  const tagLine = "1017";      
 
-  // Como estás en Hermosillo, probablemente juegues en LAN ('la1') o NA ('na1')
+
   const region = "la1"; 
-  const routing = "americas"; // El servidor global para las cuentas de nuestro continente
+  const routing = "americas"; 
 
   try {
     if (!apiKey) throw new Error("Falta RIOT_API_KEY");
@@ -46,7 +45,7 @@ export async function GET() {
     );
     const masteryData = await masteryRes.json();
 
-    // 🟢 ÉXITO: Devolvemos la data viva
+  
     return NextResponse.json({
       name: accountData.gameName,
       level: summonerData.summonerLevel,
@@ -57,7 +56,7 @@ export async function GET() {
         winrate: rankedSolo ? ((rankedSolo.wins / (rankedSolo.wins + rankedSolo.losses)) * 100).toFixed(1) : "0"
       },
       topChampions: masteryData.map((champ: any) => ({
-        id: champ.championId, // Más adelante podemos mapear esto a un nombre/imagen real
+        id: champ.championId, 
         points: champ.championPoints.toLocaleString(),
         level: champ.championLevel
       }))
@@ -66,7 +65,7 @@ export async function GET() {
   } catch (error) {
     console.error("⚠️ Error conectando con Riot:", error);
     
-    // 🛡️ FALLBACK DE SEGURIDAD
+   
     return NextResponse.json({
       name: "Armando",
       level: 250,

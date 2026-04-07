@@ -1,4 +1,3 @@
-// src/app/api/overwatch/route.ts
 import { NextResponse } from 'next/server';
 
 export const revalidate = 3600;
@@ -7,13 +6,10 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const mode = searchParams.get('mode') || 'competitive';
   
-  // 🛑 REVISA ESTO: Pon tu BattleTag real. Si dice "xxxx", la API fallará y mostrará el respaldo.
+
   const playerId = "Trakatore-1770"; 
 
   try {
-    // 🛡️ MAGIA SENIOR: Peticiones a prueba de balas 🛡️
-    // Si una de las 4 rutas de la API de Blizzard se cae, esta función la ignora 
-    // y devuelve "null" en lugar de hacer crashear todo el servidor.
     const fetchSafe = async (url: string) => {
       try {
         const res = await fetch(url);
@@ -31,10 +27,10 @@ export async function GET(request: Request) {
       fetchSafe(`https://overfast-api.tekrop.fr/heroes`)
     ]);
 
-    // Si el resumen principal falla, es porque el BattleTag está mal escrito.
+  
     if (!summaryData) throw new Error("Perfil inaccesible o BattleTag incorrecto");
 
-    // 🎨 Diccionario de Retratos (Seguro)
+   
     const portraits: Record<string, string> = {};
     if (heroesList) {
        heroesList.forEach((h: any) => { portraits[h.key] = h.portrait; });
@@ -43,7 +39,7 @@ export async function GET(request: Request) {
     // Lógica para extraer los Rangos y sus Iconos
     const getRankInfo = (role: any) => {
       if (!role) return { label: "Unranked", icon: null };
-      // Extraemos la división (Ej: "Platinum") y el tier (Ej: "2")
+      
       const division = role.division ? role.division.charAt(0).toUpperCase() + role.division.slice(1) : "";
       const tier = role.tier || "";
       return { 
@@ -69,7 +65,7 @@ export async function GET(request: Request) {
 
         return { 
           hero, 
-          image: portraits[hero] || "", // Conecta con la imagen del catálogo oficial
+          image: portraits[hero] || "", 
           time_played, 
           games_won, 
           elims_per_life, 
@@ -105,7 +101,7 @@ export async function GET(request: Request) {
     });
 
   } catch (error) {
-    console.warn("⚠️ Error general en API. Activando interfaz de respaldo.");
+    console.warn(" Error general en API. Activando interfaz de respaldo.");
     return NextResponse.json({
       identity: { name: "Trakatore", title: "Vanguardia", avatar: "https://d15f34w2p8l1cc.cloudfront.net/overwatch/30e37a0d096d92c18f7c6f9519d483e75d1d8ab5280d672f2553f650f4c050e5.png", endorsement: 3, platform: "PC" },
       competitive: { 

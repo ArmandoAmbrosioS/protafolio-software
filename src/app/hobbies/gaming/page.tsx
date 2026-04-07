@@ -1,15 +1,14 @@
-// src/app/hobbies/gaming/page.tsx
 "use client"
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react"; // Ya no necesitamos Crosshair, Swords, etc.
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image"; // Importamos Image para los logos
+import Image from "next/image"; 
 import { useLanguage } from "@/src/context/LanguageContext";
 import ThemeToggle from "@/src/components/ThemeToggle";
 import LanguageToggle from "@/src/components/LanguageToggle";
 import { useRef } from "react";
 
-// Sub-componente actualizado para recibir logos en lugar de íconos genéricos
+
 const GameVideoCard = ({ card, index, logoSrc, videoSrc }: { card: any, index: number, logoSrc: string, videoSrc: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -79,7 +78,7 @@ const GameVideoCard = ({ card, index, logoSrc, videoSrc }: { card: any, index: n
 export default function GamingHubPage() {
   const { t } = useLanguage();
 
-  // Rutas a tus logos oficiales (Archivos PNG transparentes o SVG blancos)
+
   const logos = [
     "/images/gaming/valorant-logo.png",
     "/images/gaming/lol-logo.png",

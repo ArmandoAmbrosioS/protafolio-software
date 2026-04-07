@@ -1,29 +1,43 @@
-// src/actions/sendEmail.ts
 "use server";
+import { Resend } from 'resend';
+
+// Inicializamos Resend con la variable de entorno
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData: FormData) {
-  // 1. Extraemos los datos del formulario
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
+  // 1. Extraemos los datos
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const message = formData.get("message") as string;
 
-  // Validaciones básicas de backend
+  // Validaciones básicas
   if (!name || !email || !message) {
     return { error: "Todos los campos son obligatorios." };
   }
 
-  // 2. Simulamos el tiempo de envío (1.5 segundos) para ver la animación de carga
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  try {
+    // 2. Disparamos el correo real a través de Resend
+    const { data, error } = await resend.emails.send({
+      from: 'Portafolio <onboarding@resend.dev>', 
 
-  // 3. Imprimimos en la consola de tu servidor (VS Code) para comprobar que llegó
-  console.log("📨 Nuevo mensaje recibido de tu portafolio:");
-  console.log(`Nombre: ${name}`);
-  console.log(`Email: ${email}`);
-  console.log(`Mensaje: ${message}`);
+      to: 'armando.ambrosiosoto@gmail.com', 
+      subject: `Nuevo mensaje de Portafolio: ${name}`,
+     
+      text: `Has recibido un nuevo mensaje desde tu portafolio web.\n\nNombre del contacto: ${name}\nCorreo del contacto: ${email}\n\nMensaje:\n${message}`,
+      
+      replyTo: email 
+    });
 
-  // (Nota de Senior: En un entorno real, aquí usarías una librería como Resend o SendGrid 
-  // para enviarlo a tu correo real, ¡pero la estructura ya está lista para eso!)
+    if (error) {
+      console.error("Error de Resend:", error);
+      return { error: "Hubo un fallo con el servidor de correos. Intenta más tarde." };
+    }
 
-  // 4. Retornamos un mensaje de éxito al frontend
-  return { success: "¡Mensaje enviado con éxito! Te contactaré pronto." };
+    // 3. Retornamos el éxito
+    return { success: "¡Mensaje enviado con éxito! Te contactaré pronto." };
+
+  } catch (error) {
+    console.error("Error interno:", error);
+    return { error: "Error del servidor. Por favor, contáctame por redes sociales." };
+  }
 }

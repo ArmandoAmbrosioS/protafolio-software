@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import "./globals.css";
 import { ThemeProvider } from "@/src/components/ThemeProvider";
 import CustomCursor from "@/src/components/CustomCursor";
@@ -16,10 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className="antialiased transition-colors duration-500">
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-zinc-50 dark:bg-[#010101] text-zinc-900 dark:text-white flex flex-col min-h-screen overflow-x-clip">
         <ThemeProvider>
-          {/* Envolvemos con el LanguageProvider */}
           <LanguageProvider>
             <CustomCursor />
             <Navbar />

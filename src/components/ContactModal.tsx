@@ -1,4 +1,3 @@
-// src/components/ContactModal.tsx
 "use client"
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2 } from "lucide-react";
@@ -14,7 +13,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isPending, setIsPending] = useState(false);
   const [statusMsg, setStatusMsg] = useState<{ text: string; type: "error" | "success" } | null>(null);
 
-  // Manejador del envío que conecta con nuestra Server Action
+ 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsPending(true);
@@ -29,7 +28,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     } else if (result.success) {
       setStatusMsg({ text: result.success, type: "success" });
       setIsPending(false);
-      // Cerramos el modal después de 2 segundos si tuvo éxito
+
       setTimeout(() => {
         onClose();
         setStatusMsg(null);

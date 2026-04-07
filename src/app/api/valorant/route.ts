@@ -1,4 +1,3 @@
-// src/app/api/valorant/route.ts
 import { NextResponse } from 'next/server';
 
 export const revalidate = 3600; // Caché de 1 hora
@@ -6,7 +5,7 @@ export const revalidate = 3600; // Caché de 1 hora
 export async function GET() {
   const apiKey = process.env.TRACKER_GG_API_KEY;
   
-  // Reemplaza con tu ID real de Riot (Nombre#Tag)
+
   const platform = "riot";
   const persona = "dyfit#1017"; 
   const encodedPersona = encodeURIComponent(persona);
@@ -28,9 +27,9 @@ export async function GET() {
     if (!response.ok) throw new Error(`Error de Tracker.gg: ${response.status}`);
 
     const data = await response.json();
-    const stats = data.data.segments[0].stats; // Segmento general (Lifetime)
+    const stats = data.data.segments[0].stats; 
 
-    // Mapeamos los datos reales al formato de nuestra interfaz
+  
     return NextResponse.json({
       player: {
         name: data.data.platformInfo.platformUserHandle.split('#')[0],
@@ -40,7 +39,7 @@ export async function GET() {
       },
       rank: {
         tier: stats.rank?.displayValue || "Unrated",
-        rr: 0, // Tracker.gg a veces separa el RR en otros segmentos
+        rr: 0, 
         icon: stats.rank?.metadata?.iconUrl || "/images/gaming/rank-ascendant.png"
       },
       stats: {
@@ -48,8 +47,6 @@ export async function GET() {
         headshot: stats.headshotPercentage?.displayValue || "0%",
         winrate: stats.matchesWinPct?.displayValue || "0%"
       },
-      // Tracker.gg API Standard no siempre devuelve los agentes en el perfil general
-      // Así que mantenemos tus agentes favoritos como datos destacados
       topAgents: [
         { name: "Omen", role: "Controlador", hours: 124, image: "/images/gaming/omen.png" },
         { name: "Jett", role: "Duelista", hours: 98, image: "/images/gaming/jett.png" },
@@ -58,9 +55,9 @@ export async function GET() {
     });
 
   } catch (error) {
-    console.warn("⚠️ Tracker.gg inaccesible. Activando Red de Seguridad.");
+    console.warn(" Tracker.gg inaccesible. Activando Red de Seguridad.");
     
-    // Fallback de seguridad idéntico al anterior para que la UI nunca falle
+
     return NextResponse.json({
       player: { name: "Armando", tag: "DEV", level: 142, cardImage: "/images/gaming/valorant-card.jpg" },
       rank: { tier: "Ascendente 1", rr: 45, icon: "/images/gaming/rank-ascendant.png" },

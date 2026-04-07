@@ -1,4 +1,3 @@
-// src/components/TechStack.tsx
 "use client"
 import { motion } from "framer-motion";
 

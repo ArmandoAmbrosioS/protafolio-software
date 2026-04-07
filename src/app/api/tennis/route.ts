@@ -1,22 +1,20 @@
-// src/app/api/tennis/route.ts
 import { NextResponse } from 'next/server';
 
-export const revalidate = 3600; // Caché de 1 hora para no gastar tus peticiones gratis rápido
+export const revalidate = 3600; 
 
 export async function GET() {
-  // Nombres clave a buscar en la respuesta de la API
+  
   const favoriteNames = ["Alcaraz", "Nadal", "Raducanu"];
 
   try {
-    // 1. Next.js lee tu llave secreta de forma segura
+  
     const apiKey = process.env.RAPIDAPI_KEY;
 
     if (!apiKey) {
       throw new Error("No se encontró RAPIDAPI_KEY en el archivo .env.local");
     }
 
-    // 2. Hacemos la petición a RapidAPI
-    // IMPORTANTE: Asegúrate de que esta URL y Host coincidan con la API que elegiste
+
     const response = await fetch('https://tennis.p.rapidapi.com/rankings', {
       headers: {
         'x-rapidapi-key': apiKey,
@@ -31,19 +29,18 @@ export async function GET() {
 
     const data = await response.json();
 
-    // 3. Mapeamos la respuesta (Esto varía ligeramente según la API que elijas)
-    // Asumiendo que la API devuelve un arreglo de rankings en 'data.response'
+
     const allPlayers = data.response || [];
 
     const validPlayers = allPlayers
-      // Filtramos solo a tus favoritos
+
       .filter((p: any) => favoriteNames.some(name => p.player.name.includes(name)))
-      // Formateamos los datos para tu Frontend
+
       .map((p: any) => {
         let icon = "circle-user";
         let flag = "🎾";
         
-        // Asignamos tus íconos y banderas personalizados
+
         if (p.player.name.includes("Alcaraz")) { icon = "zap"; flag = "🇪🇸"; }
         if (p.player.name.includes("Nadal")) { icon = "target"; flag = "🇪🇸"; }
         if (p.player.name.includes("Raducanu")) { icon = "shield"; flag = "🇬🇧"; }
@@ -67,9 +64,9 @@ export async function GET() {
     return NextResponse.json(validPlayers);
 
   } catch (error) {
-    console.warn("⚠️ Usando Red de Seguridad (Fallback). Motivo:", error);
+    console.warn(" Usando Red de Seguridad (Fallback). Motivo:", error);
     
-    // 4. EL FALLBACK: Te salva si se cae la API, si te quedas sin saldo o si hay error de tipeo.
+
     const fallbackData = [
       { rank: 1, name: "Carlos Alcaraz", points: "13,590", country: "ESP", flag: "🇪🇸", icon: "zap" },
       { rank: 28, name: "Emma Raducanu", points: "1,465", country: "GBR", flag: "🇬🇧", icon: "shield" },

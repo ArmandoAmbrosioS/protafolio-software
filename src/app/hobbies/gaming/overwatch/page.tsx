@@ -1,4 +1,3 @@
-// src/app/hobbies/gaming/overwatch/page.tsx
 "use client"
 import { motion } from "framer-motion";
 import { ArrowLeft, Activity, Clock, Trophy, Target, Flame, Medal } from "lucide-react";
@@ -24,13 +23,13 @@ export default function OverwatchMegaDashboard() {
   }, [mode]);
 
   if (isLoading && !data) {
-    return <div className="min-h-screen bg-[#212833] flex items-center justify-center text-[#f99e1a] font-black italic text-3xl uppercase tracking-widest animate-pulse">Iniciando Red Athena...</div>;
+    return <div className="min-h-screen bg-[#212833] flex items-center justify-center text-[#f99e1a] font-black italic text-3xl uppercase tracking-widest animate-pulse">Getting data...</div>;
   }
 
   const ow = t.gamingHub?.overwatch;
   const formatHeroName = (name: string) => name.charAt(0).toUpperCase() + name.slice(1).replace('-', ' ');
 
-  // URLs oficiales de Blizzard para los roles
+
   const roleIcons = {
     tank: "/images/gaming/ow/tank.png",
     damage: "/images/gaming/ow/damage.png",
@@ -73,7 +72,7 @@ export default function OverwatchMegaDashboard() {
       <ThemeToggle />
       <LanguageToggle />
 
-      {/* 🔴 FONDO INMERSIVO DE KIRIKO 🔴 */}
+
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video 
           src="/images/gaming/ow/kiriko-bg.mp4" 
@@ -93,7 +92,7 @@ export default function OverwatchMegaDashboard() {
           <ArrowLeft size={16} /> {t.gamingHub?.backLink}
         </Link>
 
-        {/* 🟢 IDENTIDAD Y RANGOS 🟢 */}
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-8 bg-[#2b3445] p-8 md:p-10 rounded-2xl flex flex-col md:flex-row items-center gap-8 shadow-2xl relative overflow-hidden">
@@ -129,7 +128,7 @@ export default function OverwatchMegaDashboard() {
                ].map((item, i) => (
                  <div key={i} className="flex items-center justify-between">
                    <div className="flex items-center gap-3 font-bold uppercase">
-                     {/* 👇 ICONOS OFICIALES DE ROL 👇 */}
+
                      <Image src={item.img} alt={item.role} width={22} height={22} className="opacity-90" /> {item.role}
                    </div>
                    <div className="flex items-center gap-3">
@@ -146,7 +145,7 @@ export default function OverwatchMegaDashboard() {
           </motion.div>
         </div>
 
-        {/* 🟡 FILTRO TÁCTICO DE MODO DE JUEGO 🟡 */}
+
         <div className="flex justify-center md:justify-start mb-6">
           <div className="flex bg-[#212833] rounded-lg p-1 border border-[#3b475c] w-fit shadow-inner">
             <button 
@@ -164,7 +163,7 @@ export default function OverwatchMegaDashboard() {
           </div>
         </div>
 
-        {/* 🔵 HOJA DE SERVICIO Y HÉROES 🔵 */}
+
         <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
              <div className="bg-[#2b3445] p-6 rounded-xl border border-[#3b475c] text-center">

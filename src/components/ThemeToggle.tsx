@@ -1,4 +1,3 @@
-// src/components/ThemeToggle.tsx
 "use client"
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
@@ -9,7 +8,7 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Evitar error de hidratación asegurando que el componente cargó
+
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 

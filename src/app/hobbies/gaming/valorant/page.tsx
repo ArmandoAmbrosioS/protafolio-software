@@ -1,4 +1,3 @@
-// src/app/hobbies/gaming/valorant/page.tsx
 "use client"
 import { motion } from "framer-motion";
 import { ArrowLeft, Target, Skull, TrendingUp, Award, MapPin, Zap } from "lucide-react";
@@ -11,11 +10,10 @@ import LanguageToggle from "@/src/components/LanguageToggle";
 export default function ValorantImmersiveDashboard() {
   const { t } = useLanguage();
 
-  // 🛡️ DATOS HARDCODEADOS (MOCK DATA) PREMIUM 🛡️
-  // Modifica esto con tus datos reales
+
   const playerData = {
     riotId: { name: "dyfit", tag: "1017" },
-    // 👇 ACTUALIZADO A CLOVE 👇
+
     agent: { name: "Clove", image: "/images/gaming/clove-full.png" },
     ranks: {
       current: { tier: "Diamante 1", rr: 28, icon: "/images/gaming/rank-diamond.png" },
@@ -28,7 +26,7 @@ export default function ValorantImmersiveDashboard() {
     stats: { kd: "1.25", winrate: "58.1%" }
   };
 
-  // 🟢 Definición del Efecto de Entrada característico de Valorant 🟢
+
   const agentEntryAnimation = {
     hidden: { opacity: 0, x: -100, scale: 1.1, filter: "blur(10px)" },
     visible: { 
@@ -55,7 +53,7 @@ export default function ValorantImmersiveDashboard() {
          <Image src="/images/gaming/valorant-logo.png" alt="w" fill className="object-cover scale-150" />
       </div>
 
-      {/* 🟢 MODAL OSCURO PREMIUM 🟢 */}
+      {/* MODAL OSCURO  */}
       <div className="pt-32 px-5 max-w-[90rem] mx-auto relative z-10 pb-32">
          
          <Link href="/hobbies/gaming" className="inline-flex items-center gap-2 text-zinc-500 hover:text-red-500 transition-colors font-mono text-sm uppercase tracking-widest group mb-12">
@@ -66,7 +64,7 @@ export default function ValorantImmersiveDashboard() {
         {/* LAYOUT DIVIDIDO ASIMÉTRICO */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative">
           
-          {/* 🟢 LADO IZQUIERDO: EL AGENTE CON MARIPOSAS INTELIGENTES (Ocupa 5 columnas) 🟢 */}
+          {/*  LADO IZQUIERDO: EL AGENTE CON MARIPOSAS INTELIGENTES */}
           <div className="lg:col-span-5 relative flex flex-col items-center justify-center pt-10 md:pt-0 overflow-hidden">
              
              {/* Texto de Fondo Gigante Estilo Valorant */}
@@ -93,7 +91,7 @@ export default function ValorantImmersiveDashboard() {
              {/* Resplandor Rojo Inferior Sutil de Clove */}
              <div className="absolute bottom-0 h-40 w-full bg-gradient-to-t from-red-500/10 to-transparent blur-3xl z-0" />
 
-             {/* 👇 INTEGRACIÓN DEL GIF DE MARIPOSAS ANIMADAS 👇 */}
+            
              {/* Usamos el GIF en el fondo negro para que no cubra el texto */}
              <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden h-[60vh] md:h-[80vh]">
                 {/* Instancias sutiles y transparentes de mariposas en el fondo negro */}
@@ -106,7 +104,7 @@ export default function ValorantImmersiveDashboard() {
              </div>
           </div>
 
-          {/* 🟢 LADO DERECHO: LOS DATOS (Ocupa 7 columnas) 🟢 */}
+          {/*  LADO DERECHO: LOS DATOS  */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }} 
             animate={{ opacity: 1, x: 0 }} 

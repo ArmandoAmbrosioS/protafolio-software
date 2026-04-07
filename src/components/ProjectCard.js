@@ -9,7 +9,7 @@ export default function ProjectCard({ title, category, image }) {
       className="relative group overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800"
     >
       <div className="aspect-video bg-zinc-800">
-        {/* Aquí iría tu imagen o video corto */}
+        
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">

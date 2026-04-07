@@ -1,4 +1,3 @@
-// src/app/hobbies/tennis/page.tsx
 "use client"
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Trophy, Activity, Target, Shield, Zap, X, CircleUser } from "lucide-react";
@@ -16,10 +15,10 @@ export default function TennisPage() {
   const [players, setPlayers] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  // Estado para controlar qué elemento está abierto en el Modal
+  
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
-  // Estados dinámicos para el diseño inteligente del modal
+
   const [modalLayout, setModalLayout] = useState("flex flex-col");
   const [imageContainerClass, setImageContainerClass] = useState("relative w-full h-80 bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800");
   const [textContainerClass, setTextContainerClass] = useState("w-full p-8 md:p-12 flex flex-col justify-center");
@@ -104,10 +103,6 @@ export default function TennisPage() {
                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white flex items-center gap-3">
                   {t.tennis.atpTitle}
                </h2>
-               <div className="flex items-center gap-2 text-xs font-mono text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full animate-pulse">
-                  <Activity size={14} />
-                  {t.tennis.liveStatus}
-               </div>
              </div>
 
              <div className="bg-zinc-900 dark:bg-[#050505] border border-zinc-800 rounded-3xl p-6 shadow-2xl text-white">
@@ -163,7 +158,6 @@ export default function TennisPage() {
         </div>
       </div>
 
-      {/* 🟢 MODAL INTELIGENTE (LIGHTBOX) 🟢 */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
@@ -190,7 +184,7 @@ export default function TennisPage() {
                     fill 
                     className={`object-contain transition-opacity duration-300 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} // object-contain para no cortar la imagen
                     onLoad={(e) => {
-                       // 🟢 Lógica Inteligente de Orientación 🟢
+                       
                        const { naturalWidth, naturalHeight } = e.currentTarget;
                        const ratio = naturalWidth / naturalHeight;
 

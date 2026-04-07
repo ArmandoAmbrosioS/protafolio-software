@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 "use client"
 import { motion } from "framer-motion";
 import { Home, Briefcase, Code, Compass } from "lucide-react";
@@ -12,8 +11,8 @@ export default function Navbar() {
 
   const navItems = [
     { name: t.nav.home, icon: Home, href: "/" },
-    { name: t.nav.experience, icon: Briefcase, href: "/#experience" },
-    { name: t.nav.work, icon: Code, href: "/#work" },
+    { name: t.nav.experience, icon: Briefcase, href: "/#experiencia" },
+    { name: t.nav.work, icon: Code, href: "/#proyectos" },
     { name: t.nav.photo, icon: Compass, href: "/hobbies" },
   ];
 
