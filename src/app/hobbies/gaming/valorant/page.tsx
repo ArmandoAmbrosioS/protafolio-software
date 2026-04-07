@@ -36,7 +36,7 @@ export default function ValorantImmersiveDashboard() {
       filter: "blur(0px)",
       transition: { 
         duration: 1.2, // Entrada lenta y majestuosa
-        ease: [0.22, 1, 0.36, 1], // Cubic-bezier suave
+        ease: [0.22, 1, 0.36, 1] as any,
         delay: 0.2
       }
     }
