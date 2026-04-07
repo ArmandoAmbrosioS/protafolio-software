@@ -86,7 +86,7 @@ export default function HobbiesHub() {
         {/* Botón de Regreso al Portafolio */}
         <Link href="/" className="inline-flex items-center gap-2 text-zinc-500 hover:text-cyan-500 transition-colors font-mono text-sm uppercase tracking-widest group mb-16">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> 
-          {t.hobbiesHub?.backLink || "Volver al Portafolio"}
+          {(t.hobbiesHub as any)?.backLink || "Volver al Portafolio"}
         </Link>
 
         {/* Cabecera del Hub */}

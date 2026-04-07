@@ -20,6 +20,7 @@ const dictionaries = {
       photo: "Hobbies"
     },
     hobbiesHub: {
+      backLink: "Volver al Portafolio",
       title: "Más allá del ",
       titleAccent: "teclado.",
       description: "El código es mi profesión, pero aquí te muestro lo que me inspira cuando no estoy programando.",
@@ -312,6 +313,7 @@ const dictionaries = {
       photo: "Hobbies"
     },
     hobbiesHub: {
+      backLink: "Back to Portfolio",
       title: "Beyond the ",
       titleAccent: "keyboard.",
       description: "Code is my profession, but here is what inspires me when I am not coding.",
