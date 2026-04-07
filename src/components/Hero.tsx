@@ -12,7 +12,7 @@ function cn(...inputs: any[]) { return twMerge(clsx(inputs)); }
 const letterVariants = {
   initial: { y: 100, opacity: 0 },
   animate: (i: number) => ({
-    y: 0, opacity: 1, transition: { delay: i * 0.03, duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    y: 0, opacity: 1, transition: { delay: i * 0.03, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, },
   }),
 };
 
