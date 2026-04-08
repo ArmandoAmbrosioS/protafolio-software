@@ -5,7 +5,7 @@ export default function TechStack() {
   const technologies = [
     "Next.js", "React", "TypeScript", "Python", "Django", 
     "FastAPI", "Docker", "Laravel", "PHP", "PostgreSQL", 
-    "AWS", "C#.NET"
+    "AWS", "C#.NET", "Java", "GitHub", "Bootsrap", "Postman", "Node.js"
   ];
 
   return (

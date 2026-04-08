@@ -1,7 +1,7 @@
 "use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type Language = 'es' | 'en';
+type Language = 'en' | 'es';
 
 const dictionaries = {
   es: {
