@@ -168,7 +168,7 @@ export default function Hero() {
         className="relative lg:absolute mt-16 lg:mt-0 bottom-auto lg:bottom-6 left-auto lg:left-1/2 lg:-translate-x-1/2 text-zinc-300 dark:text-zinc-800 font-mono text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.5em] pointer-events-none whitespace-nowrap opacity-60 dark:opacity-30 z-0 transition-colors duration-500"
       >
         <motion.span animate={{ x: [0, -100, 0] }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="inline-block">
-          React / Next.js / Python / Django / FastAPI / Docker / AWS
+          React / Next.js / Python / Django / Java / FastAPI / Docker / AWS
         </motion.span>
       </motion.div>
     </section>
