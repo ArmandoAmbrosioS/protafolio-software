@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className="bg-zinc-50 dark:bg-[#010101] text-zinc-900 dark:text-white flex flex-col min-h-screen overflow-x-clip">
         <ThemeProvider>
           <LanguageProvider>
-            {/* <CustomCursor /> */}
+            <CustomCursor />
             <Navbar />
             {children}
           </LanguageProvider>

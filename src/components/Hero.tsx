@@ -1,5 +1,5 @@
 "use client"
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Bot } from "lucide-react"; 
 import { useState, useRef } from "react";
 import { twMerge } from "tailwind-merge";
@@ -9,13 +9,7 @@ import { useLanguage } from "@/src/context/LanguageContext";
 
 function cn(...inputs: any[]) { return twMerge(clsx(inputs)); }
 
-const letterVariants = {
-  initial: { y: 100, opacity: 0 },
-  animate: (i: number) => ({
-    y: 0, opacity: 1, transition: { delay: i * 0.03, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, },
-  }),
-};
-
+// Conservamos tu componente optimizado (muy bien hecho el quitar la animación letra por letra)
 const AnimatedText = ({ text, className }: { text: string; className: string }) => {
   if (!text) return null;
   return (
@@ -31,53 +25,24 @@ const AnimatedText = ({ text, className }: { text: string; className: string }) 
   );
 };
 
+// ... (Conserva tus componentes de GithubIcon, LinkedinIcon, InstagramIcon, FacebookIcon aquí) ...
 const GithubIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.15-.38 6.5-1.4 6.5-7.17A5.1 5.1 0 0 0 19 4.82a5.4 5.4 0 0 0-.1-3.2s-1.2-.38-3.9 1.45a13.3 13.3 0 0 0-7 0C5.3 1.24 4.1 1.62 4.1 1.62a5.4 5.4 0 0 0-.1 3.2 5.1 5.1 0 0 0-1.5 3.03c0 5.77 3.34 6.79 6.49 7.17A4.8 4.8 0 0 0 8 18v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.15-.38 6.5-1.4 6.5-7.17A5.1 5.1 0 0 0 19 4.82a5.4 5.4 0 0 0-.1-3.2s-1.2-.38-3.9 1.45a13.3 13.3 0 0 0-7 0C5.3 1.24 4.1 1.62 4.1 1.62a5.4 5.4 0 0 0-.1 3.2 5.1 5.1 0 0 0-1.5 3.03c0 5.77 3.34 6.79 6.49 7.17A4.8 4.8 0 0 0 8 18v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
 );
-
 const LinkedinIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
 );
-
 const InstagramIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
 );
-
 const FacebookIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
 );
 
 export default function Hero() {
   const { t } = useLanguage();
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const smoothY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-
-  function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  const bgX1 = useTransform(smoothX, [0, 1000], [250, -250]);
-  const bgY1 = useTransform(smoothY, [0, 800], [250, -250]);
-  const bgX2 = useTransform(smoothX, [0, 1000], [-350, 350]);
-  const bgY2 = useTransform(smoothY, [0, 800], [-350, 350]);
-
+  
+  // Mantenemos solo el botón magnético, que es ligero porque aplica a un elemento pequeño
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const [magneticPosition, setMagneticPosition] = useState({ x: 0, y: 0 });
 
@@ -88,7 +53,6 @@ export default function Hero() {
     setMagneticPosition({ x: (clientX - (left + width / 2)) / 2.5, y: (clientY - (top + height / 2)) / 2.5 });
   };
 
- 
   const socialLinks = [
     { icon: GithubIcon, href: "https://github.com/ArmandoAmbrosioS", label: "GitHub" },
     { icon: LinkedinIcon, href: "https://www.linkedin.com/in/armando-ambrosio-soto/", label: "LinkedIn" },
@@ -97,12 +61,12 @@ export default function Hero() {
   ];
 
   return (
-    <section 
-      className="min-h-screen h-auto flex flex-col justify-center items-center bg-zinc-50 dark:bg-[#010101] text-zinc-900 dark:text-white px-5 sm:px-10 relative overflow-hidden transition-colors duration-500 py-32 lg:py-0"
-      onMouseMove={onMouseMove} 
-    >
-      <motion.div style={{ x: bgX1, y: bgY1 }} className="absolute top-[-25%] left-[-20%] w-[110vh] h-[110vh] bg-cyan-300/30 dark:bg-cyan-700/20 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
-      <motion.div style={{ x: bgX2, y: bgY2 }} className="absolute bottom-[-35%] right-[-20%] w-[110vh] h-[110vh] bg-purple-300/30 dark:bg-purple-700/15 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
+    // Quitamos el onMouseMove masivo del contenedor principal
+    <section className="min-h-screen h-auto flex flex-col justify-center items-center bg-zinc-50 dark:bg-[#010101] text-zinc-900 dark:text-white px-5 sm:px-10 relative overflow-hidden transition-colors duration-500 py-32 lg:py-0">
+      
+      {/* Fondos estáticos: Mantienen la estética pero liberan al CPU */}
+      <div className="absolute top-[-25%] left-[-20%] w-[110vh] h-[110vh] bg-cyan-300/30 dark:bg-cyan-700/20 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
+      <div className="absolute bottom-[-35%] right-[-20%] w-[110vh] h-[110vh] bg-purple-300/30 dark:bg-purple-700/15 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
 
       <div className="text-center z-10 flex flex-col items-center max-w-7xl mt-10 w-full">
         <motion.div initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 15 }} className="flex items-center gap-2 border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-300 px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-md shadow-xl shadow-zinc-200/50 dark:shadow-cyan-950/20 transition-colors duration-500">
