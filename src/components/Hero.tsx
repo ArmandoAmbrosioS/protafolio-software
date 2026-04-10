@@ -20,11 +20,13 @@ const AnimatedText = ({ text, className }: { text: string; className: string }) 
   if (!text) return null;
   return (
     <span className={cn("inline-block", className)}>
-      {text.split("").map((letter, i) => (
-        <motion.span key={`${letter}-${i}`} variants={letterVariants} initial="initial" animate="animate" custom={i} className="inline-block">
-          {letter === " " ? "\u00A0" : letter}
-        </motion.span>
-      ))}
+      <motion.h1 
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+      >
+        {text}
+      </motion.h1>
     </span >
   );
 };
