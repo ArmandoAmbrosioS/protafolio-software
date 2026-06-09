@@ -80,7 +80,7 @@ export default function Hero() {
         
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-10 lg:gap-16 mb-10 sm:mb-12 w-full">
           <motion.div initial={{ opacity: 0, scale: 0.8, x: -30 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ delay: 0.7, type: "spring", stiffness: 100, damping: 20 }} whileHover={{ scale: 1.05 }} className="relative flex-shrink-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-white dark:border-zinc-900 shadow-2xl group transition-all duration-500">
-            <Image src="/images/me.jpg" alt="Armando Ambrosio" fill className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0" priority />
+            <Image src="/images/me.jpg" alt="Armando Ambrosio" fill sizes="(max-width: 640px) 128px, (max-width: 1024px) 192px, 224px" className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0" priority />
             <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/10 transition-colors duration-500" />
           </motion.div>
 

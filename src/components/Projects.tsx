@@ -85,7 +85,7 @@ const ProjectCard = ({ projectData, visual, index, progress, targetScale, t }: a
 
         <div className="w-full lg:w-1/2 relative min-h-[250px] sm:min-h-[300px] lg:min-h-0 overflow-hidden bg-zinc-100 dark:bg-zinc-900 border-t lg:border-t-0 lg:border-l border-zinc-200 dark:border-zinc-800 transition-colors duration-500">
           <motion.div style={{ scale: imageScale }} className="absolute inset-0 w-full h-full p-4 sm:p-6">
-            <Image src={visual.image} alt={projectData.title || "Project Image"} fill className="object-contain z-0" />
+            <Image src={visual.image} alt={projectData.title || "Project Image"} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain z-0" />
           </motion.div>
         </div>
       </motion.div>
