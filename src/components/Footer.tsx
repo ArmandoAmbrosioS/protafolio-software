@@ -46,15 +46,7 @@ export default function Footer() {
         />
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
-          <div className="flex items-center gap-2 border border-cyan-200 dark:border-cyan-900/50 bg-cyan-50 dark:bg-cyan-950/20 text-cyan-600 dark:text-cyan-400 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            {t.contact.status}
-          </div>
-
-          <h2 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-none">
+<h2 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-none">
             {t.contact.title} <br />
             <span className="text-zinc-400 dark:text-zinc-600">{t.contact.titleAccent}</span>
           </h2>
