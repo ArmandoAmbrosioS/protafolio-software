@@ -16,6 +16,7 @@ export default function CustomCursor() {
   const smoothY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     setMounted(true);
 
     const moveCursor = (e: MouseEvent) => {

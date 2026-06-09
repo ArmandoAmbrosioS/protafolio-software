@@ -1,7 +1,7 @@
 "use client"
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Zap, Layers3, BarChart3 } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
 const servicesVisuals = [
@@ -11,6 +11,11 @@ const servicesVisuals = [
 ];
 
 const ServiceCard = ({ serviceData, visual }: any) => {
+  const [isTouch, setIsTouch] = useState(true);
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
   const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -20,12 +25,10 @@ const ServiceCard = ({ serviceData, visual }: any) => {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
   function onMouseMove(e: React.MouseEvent) {
-    if (!cardRef.current) return;
+    if (isTouch || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
-    const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
-    x.set(mouseX);
-    y.set(mouseY);
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   }
 
   function onMouseLeave() {
@@ -37,9 +40,10 @@ const ServiceCard = ({ serviceData, visual }: any) => {
       ref={cardRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      style={isTouch ? undefined : { rotateX, rotateY, transformStyle: "preserve-3d" }}
       className="relative h-auto min-h-[320px] lg:min-h-0 lg:aspect-[3/4] w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 cursor-pointer flex flex-col justify-between overflow-hidden group shadow-xl shadow-zinc-200/50 dark:shadow-black/30 transition-colors duration-500"
     >
+      {!isTouch && (
       <motion.div
         style={{
           transform: "translateZ(100px)",
@@ -47,6 +51,7 @@ const ServiceCard = ({ serviceData, visual }: any) => {
         }}
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
       />
+      )}
 
       <div style={{ transform: "translateZ(50px)" }} className="z-10 flex flex-col items-center text-center">
         <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 mb-6 lg:mb-8 transition-colors duration-500">
