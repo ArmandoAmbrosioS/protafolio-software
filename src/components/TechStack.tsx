@@ -38,8 +38,8 @@ export default function TechStack() {
         </div>
       </div>
 
-      <div className="absolute left-0 top-0 w-32 md:w-64 h-full bg-gradient-to-r from-zinc-50 dark:from-[#010101] to-transparent z-10 pointer-events-none transition-colors duration-500" />
-      <div className="absolute right-0 top-0 w-32 md:w-64 h-full bg-gradient-to-l from-zinc-50 dark:from-[#010101] to-transparent z-10 pointer-events-none transition-colors duration-500" />
+      <div className="absolute left-0 top-0 w-8 md:w-32 h-full bg-gradient-to-r from-zinc-50 dark:from-[#010101] to-transparent z-10 pointer-events-none transition-colors duration-500" />
+      <div className="absolute right-0 top-0 w-8 md:w-32 h-full bg-gradient-to-l from-zinc-50 dark:from-[#010101] to-transparent z-10 pointer-events-none transition-colors duration-500" />
     </section>
   );
 }
