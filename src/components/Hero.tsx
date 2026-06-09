@@ -65,8 +65,8 @@ export default function Hero() {
     <section className="min-h-screen h-auto flex flex-col justify-center items-center bg-zinc-50 dark:bg-[#010101] text-zinc-900 dark:text-white px-5 sm:px-10 relative overflow-hidden transition-colors duration-500 py-32 lg:py-0">
       
       {/* Fondos estáticos: Mantienen la estética pero liberan al CPU */}
-      <div className="absolute top-[-25%] left-[-20%] w-[110vh] h-[110vh] bg-cyan-300/30 dark:bg-cyan-700/20 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
-      <div className="absolute bottom-[-35%] right-[-20%] w-[110vh] h-[110vh] bg-purple-300/30 dark:bg-purple-700/15 rounded-full blur-[160px] pointer-events-none transition-colors duration-500" />
+      <div className="absolute top-[-25%] left-[-20%] w-[110vh] h-[110vh] bg-cyan-300/30 dark:bg-cyan-700/20 rounded-full pointer-events-none transition-colors duration-500 [mask-image:radial-gradient(circle,white_0%,transparent_60%)]" />
+      <div className="absolute bottom-[-35%] right-[-20%] w-[110vh] h-[110vh] bg-purple-300/30 dark:bg-purple-700/15 rounded-full pointer-events-none transition-colors duration-500 [mask-image:radial-gradient(circle,white_0%,transparent_60%)]" />
 
       <div className="text-center z-10 flex flex-col items-center max-w-7xl mt-10 w-full">
         <motion.div initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 15 }} className="flex items-center gap-2 border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-300 px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-md shadow-xl shadow-zinc-200/50 dark:shadow-cyan-950/20 transition-colors duration-500">
