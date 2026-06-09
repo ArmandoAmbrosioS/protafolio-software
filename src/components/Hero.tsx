@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion";
-import { ArrowRight, Bot } from "lucide-react"; 
+import { ArrowRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
@@ -69,12 +69,7 @@ export default function Hero() {
       <div className="absolute bottom-[-35%] right-[-20%] w-[110vh] h-[110vh] bg-purple-300/30 dark:bg-purple-700/15 rounded-full pointer-events-none transition-colors duration-500 [mask-image:radial-gradient(circle,white_0%,transparent_60%)]" />
 
       <div className="text-center z-10 flex flex-col items-center max-w-7xl mt-10 w-full">
-        <motion.div initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 15 }} className="flex items-center gap-2 border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-300 px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-md shadow-xl shadow-zinc-200/50 dark:shadow-cyan-950/20 transition-colors duration-500">
-          <Bot size={15} className="text-cyan-500 dark:text-cyan-400" />
-          <span>{t.hero.role}</span>
-        </motion.div>
-
-        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="text-lg sm:text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium mb-8 sm:mb-10 transition-colors duration-500">
+<motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="text-lg sm:text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium mb-8 sm:mb-10 transition-colors duration-500">
           {t.hero.intro} <span className="text-zinc-900 dark:text-white font-bold">Armando Ambrosio.</span>
         </motion.h2>
         

@@ -9,16 +9,18 @@ import ThemeToggle from "@/src/components/ThemeToggle";
 import LanguageToggle from "@/src/components/LanguageToggle";
 import { useState } from "react";
 
+const BLUR_PLACEHOLDER = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/wAARCAAIAAoDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAA/9k=";
+
 // Componente Inteligente de cada Foto
 const SmartPhoto = ({ photo, index, onClick }: { photo: any, index: number, onClick: () => void }) => {
   const [spanClass, setSpanClass] = useState("md:col-span-1 md:row-span-1");
-  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.9 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       onClick={onClick}
       className={`relative rounded-3xl overflow-hidden cursor-pointer group bg-zinc-200 dark:bg-zinc-900 transition-all duration-500 shadow-lg ${spanClass}`}
     >
@@ -26,7 +28,9 @@ const SmartPhoto = ({ photo, index, onClick }: { photo: any, index: number, onCl
         src={photo.src}
         alt={photo.title}
         fill
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 66vw, 800px"
+        placeholder="blur"
+        blurDataURL={BLUR_PLACEHOLDER}
         className="object-cover transition-transform duration-700 group-hover:scale-110"
         onLoad={(e) => {
           const { naturalWidth, naturalHeight } = e.currentTarget;
@@ -34,7 +38,6 @@ const SmartPhoto = ({ photo, index, onClick }: { photo: any, index: number, onCl
           if (ratio > 1.2) setSpanClass("md:col-span-2 md:row-span-2");
           else if (ratio < 0.8) setSpanClass("md:col-span-1 md:row-span-2");
           else setSpanClass("md:col-span-1 md:row-span-1");
-          setIsLoaded(true);
         }}
       />
       {/* Overlay con ícono de + al pasar el mouse */}
@@ -146,11 +149,14 @@ export default function PhotographyPage() {
             >
                {/* Contenedor de la Imagen */}
                <div className="relative w-full md:w-2/3 h-[40vh] md:h-[80vh] bg-zinc-100 dark:bg-black">
-                 <Image 
-                    src={selectedPhoto.src} 
-                    alt={selectedPhoto.title} 
-                    fill 
-                    className="object-contain" // object-contain evita que se corte en el modal
+                 <Image
+                    src={selectedPhoto.src}
+                    alt={selectedPhoto.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    placeholder="blur"
+                    blurDataURL={BLUR_PLACEHOLDER}
+                    className="object-contain"
                  />
                </div>
                
