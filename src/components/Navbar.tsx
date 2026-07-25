@@ -9,6 +9,10 @@ export default function Navbar() {
   const { t } = useLanguage();
   const pathname = usePathname();
 
+  if (pathname?.startsWith("/cabus")) {
+    return null;
+  }
+
   const navItems = [
     { name: t.nav.home, icon: Home, href: "/" },
     { name: t.nav.experience, icon: Briefcase, href: "/#experiencia" },
