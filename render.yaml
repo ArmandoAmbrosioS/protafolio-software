@@ -1,0 +1,34 @@
+# Exported from Render on 2026-08-06T18:22:18Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: miportafolio-ambso
+      runtime: node
+      repo: https://github.com/ArmandoAmbrosioS/protafolio-software
+      plan: starter
+      envVars:
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
+      - key: PORT
+        sync: false
+      - key: NODE_VERSION
+        sync: false
+      - key: NODE_OPTIONS
+        sync: false
+      - key: CABUS_SITE_URL
+        sync: false
+      - key: CABUS_ALLOWED_ORIGIN
+        sync: false
+      region: oregon
+      buildCommand: npm install && npm run build
+      startCommand: npm run start
+      domains:
+      - www.armandoambrosio.com
+      - armandoambrosio.com
+      autoDeployTrigger: commit
