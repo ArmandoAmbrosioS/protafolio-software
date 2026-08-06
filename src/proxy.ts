@@ -10,8 +10,12 @@ function getAllowedOrigins(): string[] {
 function corsHeaders(origin: string | null): Headers {
   const headers = new Headers();
   const allowed = getAllowedOrigins();
-  if (origin && allowed.includes(origin)) {
-    headers.set("Access-Control-Allow-Origin", origin);
+
+  // Cloudflare may strip the Origin header — if so, fall back to first allowed origin
+  const effectiveOrigin = origin ?? (allowed[0] ?? null);
+
+  if (effectiveOrigin && allowed.includes(effectiveOrigin)) {
+    headers.set("Access-Control-Allow-Origin", effectiveOrigin);
     headers.set("Vary", "Origin");
   }
   headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
